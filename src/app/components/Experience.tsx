@@ -11,7 +11,7 @@ const experiences = [
     period: "Jun 2024 – Aug 2024",
     duration: "3 months",
     type: "Internship",
-    color: "from-violet-500 to-purple-600",
+    color: "from-blue-500 to-purple-600",
     badge: "ML",
     highlights: [
       "Developed and trained machine learning models using Python and scikit-learn",
@@ -29,7 +29,7 @@ const experiences = [
     period: "Aug 2023",
     duration: "1 month",
     type: "Internship",
-    color: "from-indigo-500 to-blue-600",
+    color: "from-green-500 to-blue-600",
     badge: "Web",
     highlights: [
       "Designed and developed responsive web pages using HTML, CSS, and JavaScript",
@@ -55,11 +55,11 @@ export function Experience() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-violet-600 font-medium text-sm uppercase tracking-widest mb-3">
+          <p className="text-blue-600 font-medium text-sm uppercase tracking-widest mb-3">
             Work history
           </p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">Experience</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto mb-6" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto mb-6" />
           <p className="text-slate-500 max-w-lg mx-auto">
             Real-world internship experience building ML solutions and web products.
           </p>
@@ -68,7 +68,7 @@ export function Experience() {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-violet-200 via-indigo-200 to-transparent md:-translate-x-px hidden sm:block" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-200 via-green-200 to-transparent md:-translate-x-px hidden sm:block" />
 
           <div className="flex flex-col gap-10">
             {experiences.map((exp, i) => (
@@ -82,11 +82,11 @@ export function Experience() {
                 }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-8 md:left-1/2 top-6 w-4 h-4 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 border-4 border-white shadow-md -translate-x-1/2 z-10 hidden sm:block" />
+                <div className="absolute left-8 md:left-1/2 top-6 w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-green-600 border-4 border-white shadow-md -translate-x-1/2 z-10 hidden sm:block" />
 
                 {/* Card — alternates left / right */}
                 <div className={`${i % 2 === 0 ? "md:col-start-1" : "md:col-start-2"} md:col-span-1`}>
-                  <div className="bg-white rounded-2xl border border-slate-100 hover:border-violet-200 shadow-sm hover:shadow-lg hover:shadow-violet-100/50 transition-all duration-300 overflow-hidden">
+                  <div className="bg-white rounded-2xl border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-lg hover:shadow-blue-100/50 transition-all duration-300 overflow-hidden">
                     {/* Top gradient bar */}
                     <div className={`h-1.5 w-full bg-gradient-to-r ${exp.color}`} />
 
@@ -100,12 +100,12 @@ export function Experience() {
                             >
                               {exp.badge}
                             </span>
-                            <span className="text-xs text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full border border-slate-100">
+                            <span className="text-xs text-slate-300 bg-slate-50 px-2 py-0.5 rounded-full border border-slate-100">
                               {exp.type}
                             </span>
                           </div>
                           <h3 className="font-bold text-slate-800 text-lg">{exp.role}</h3>
-                          <p className="text-violet-600 font-semibold text-sm">{exp.company}</p>
+                          <p className="text-blue-600 font-semibold text-sm">{exp.company}</p>
                         </div>
                         <div
                           className={`w-11 h-11 rounded-xl bg-gradient-to-br ${exp.color} flex items-center justify-center flex-shrink-0`}
@@ -130,7 +130,7 @@ export function Experience() {
                       <ul className="flex flex-col gap-2 mb-4">
                         {exp.highlights.map((point) => (
                           <li key={point} className="flex items-start gap-2">
-                            <CheckCircle className="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0" />
+                            <CheckCircle className="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0" />
                             <span className="text-slate-600 text-sm leading-relaxed">{point}</span>
                           </li>
                         ))}
@@ -141,7 +141,7 @@ export function Experience() {
                         {exp.skills.map((skill) => (
                           <span
                             key={skill}
-                            className="px-2.5 py-1 rounded-md bg-violet-50 text-violet-700 text-xs font-medium"
+                            className="px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-medium"
                           >
                             {skill}
                           </span>

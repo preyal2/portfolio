@@ -47,7 +47,7 @@ export function Navbar() {
           onClick={() => handleNav("Home", "#home")}
           className="flex items-center gap-2 group"
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-green-600 flex items-center justify-center">
             <Code2 className="w-4 h-4 text-white" />
           </div>
           <span
@@ -66,14 +66,14 @@ export function Navbar() {
               <button
                 onClick={() => handleNav(link.label, link.href)}
                 className={`relative text-sm font-medium transition-colors group ${
-                  scrolled ? "text-slate-600 hover:text-violet-600" : "text-white/80 hover:text-white"
-                } ${active === link.label ? (scrolled ? "text-violet-600" : "text-white") : ""}`}
+                  scrolled ? "text-slate-600 hover:text-blue-600" : "text-white/80 hover:text-white"
+                } ${active === link.label ? (scrolled ? "text-blue-600" : "text-white") : ""}`}
               >
                 {link.label}
                 {active === link.label && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-green-600 rounded-full"
                   />
                 )}
               </button>
@@ -86,7 +86,7 @@ export function Navbar() {
           href="https://www.linkedin.com/in/preyalmodi"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-violet-200 transition-all duration-200 hover:-translate-y-0.5"
+          className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-green-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-200 transition-all duration-200 hover:-translate-y-0.5"
         >
           LinkedIn
         </a>
@@ -118,7 +118,7 @@ export function Navbar() {
                   <button
                     onClick={() => handleNav(link.label, link.href)}
                     className={`text-sm font-medium transition-colors ${
-                      active === link.label ? "text-violet-600" : "text-slate-600"
+                      active === link.label ? "text-blue-600" : "text-slate-600"
                     }`}
                   >
                     {link.label}
@@ -130,7 +130,7 @@ export function Navbar() {
                   href="https://www.linkedin.com/in/preyalmodi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-medium"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-green-600 text-white text-sm font-medium"
                 >
                   LinkedIn
                 </a>

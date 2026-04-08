@@ -17,12 +17,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-400 py-12">
+    <footer className="bg-slate-900 text-slate-300 py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
           {/* Brand */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-green-600 flex items-center justify-center">
               <Code2 className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -37,7 +37,7 @@ export function Footer() {
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
-                className="text-sm hover:text-violet-400 transition-colors"
+                className="text-sm hover:text-blue-400 transition-colors"
               >
                 {link.label}
               </button>
@@ -74,7 +74,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center hover:border-violet-500 hover:text-violet-400 transition-all duration-200"
+                className="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center hover:border-blue-500 hover:text-blue-400 transition-all duration-200"
               >
                 <Icon className="w-4 h-4" />
               </a>
@@ -91,7 +91,7 @@ export function Footer() {
           </p>
           <button
             onClick={scrollTop}
-            className="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center hover:border-violet-500 hover:text-violet-400 transition-all duration-200"
+            className="w-9 h-9 rounded-full border border-slate-700 flex items-center justify-center hover:border-blue-500 hover:text-blue-400 transition-all duration-200"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />

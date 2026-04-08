@@ -42,7 +42,7 @@ function RoleTyper({ roles }: { roles: string[] }) {
   }, [displayed, typing, index, roles]);
 
   return (
-    <span className="text-violet-300 font-medium text-lg">
+    <span className="text-blue-300 font-medium text-lg">
       {displayed}
       <span className="animate-pulse">|</span>
     </span>
@@ -61,12 +61,12 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-violet-950 to-indigo-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-green-600/20 rounded-full blur-3xl" />
         <div
           className="absolute inset-0 opacity-20"
           style={{
@@ -84,7 +84,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-sm mb-6"
           >
             <Sparkles className="w-3.5 h-3.5" />
             Available for internships &amp; collaborations
@@ -97,7 +97,7 @@ export function Hero() {
             className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight"
           >
             Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
               Preyal Modi
             </span>
           </motion.h1>
@@ -108,7 +108,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex items-center gap-3 mb-6"
           >
-            <div className="h-0.5 w-8 bg-gradient-to-r from-violet-400 to-indigo-400 rounded-full" />
+            <div className="h-0.5 w-8 bg-gradient-to-r from-blue-400 to-green-400 rounded-full" />
             <RoleTyper roles={roles} />
           </motion.div>
 
@@ -116,7 +116,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-slate-300 text-lg leading-relaxed mb-8 max-w-md"
+            className="text-slate-200 text-lg leading-relaxed mb-8 max-w-md"
           >
             A passionate Computer Engineering student from Mehsana, Gujarat, with
             hands-on internship experience in Machine Learning and Web Development.
@@ -131,7 +131,7 @@ export function Hero() {
           >
             <button
               onClick={scrollToProjects}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium hover:shadow-xl hover:shadow-violet-500/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-green-600 text-white font-medium hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
             >
               View My Work
             </button>
@@ -181,7 +181,7 @@ export function Hero() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-violet-400 hover:bg-violet-500/20 transition-all duration-200"
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-blue-400 hover:bg-blue-500/20 transition-all duration-200"
                 aria-label={label}
               >
                 <Icon className="w-4 h-4" />
@@ -198,9 +198,9 @@ export function Hero() {
           className="flex justify-center"
         >
           <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 blur-2xl opacity-40 scale-110" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-green-600 blur-2xl opacity-40 scale-110" />
             <div
-              className="absolute inset-0 rounded-full border-2 border-dashed border-violet-400/40"
+              className="absolute inset-0 rounded-full border-2 border-dashed border-blue-400/40"
               style={{ animation: "spin 20s linear infinite" }}
             />
             <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">

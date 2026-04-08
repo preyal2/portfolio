@@ -5,7 +5,7 @@ import { GraduationCap, MapPin, Calendar, Code2, BrainCircuit, Palette } from "l
 
 const stats = [
   { value: "2", label: "Internships" },
-  { value: "3+", label: "Projects Built" },
+  { value: "10+", label: "Projects Built" },
   { value: "2", label: "Degrees" },
   { value: "2026", label: "Available From" },
 ];
@@ -17,7 +17,7 @@ const education = [
     degree: "Bachelor of Engineering — Computer Engineering",
     period: "2025 – 2028",
     skills: ["Web Design", "Software Development"],
-    color: "from-violet-500 to-purple-600",
+    color: "from-blue-500 to-purple-600",
   },
   {
     icon: GraduationCap,
@@ -25,7 +25,7 @@ const education = [
     degree: "Diploma in Computer Engineering",
     period: "2022 – 2025",
     skills: ["Machine Learning", "Web Design"],
-    color: "from-indigo-500 to-blue-600",
+    color: "from-green-500 to-blue-600",
   },
 ];
 
@@ -64,11 +64,11 @@ export function About() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-violet-600 font-medium text-sm uppercase tracking-widest mb-3">
+          <p className="text-blue-600 font-medium text-sm uppercase tracking-widest mb-3">
             Get to know me
           </p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -80,7 +80,7 @@ export function About() {
           >
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               Software Development &{" "}
-              <span className="text-violet-600">Systems Design</span>
+              <span className="text-blue-600">Systems Design</span>
             </h3>
             <p className="text-slate-600 leading-relaxed mb-4">
               Hi, I'm <strong>Preyal Modi</strong> — a dedicated Computer Engineering student
@@ -101,7 +101,7 @@ export function About() {
               {interests.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full text-slate-600 text-sm border border-slate-100 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-700 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full text-slate-600 text-sm border border-slate-100 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200"
                 >
                   <Icon className="w-3.5 h-3.5" />
                   {label}
@@ -143,7 +143,7 @@ export function About() {
                   transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                   className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-100 text-center hover:shadow-md transition-shadow duration-200"
                 >
-                  <p className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent mb-1">
+                  <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-1">
                     {value}
                   </p>
                   <p className="text-slate-500 text-sm">{label}</p>

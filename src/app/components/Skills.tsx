@@ -4,9 +4,9 @@ import { motion, useInView } from "motion/react";
 const skillCategories = [
   {
     title: "Web Development",
-    color: "from-violet-500 to-purple-600",
-    bgColor: "bg-violet-50",
-    borderColor: "border-violet-100",
+    color: "from-blue-500 to-purple-600",
+    bgColor: "bg-blue-50",
+    borderColor: "border-blue-100",
     skills: [
       { name: "HTML / CSS", level: 90 },
       { name: "JavaScript", level: 80 },
@@ -16,9 +16,9 @@ const skillCategories = [
   },
   {
     title: "Machine Learning",
-    color: "from-indigo-500 to-blue-600",
-    bgColor: "bg-indigo-50",
-    borderColor: "border-indigo-100",
+    color: "from-green-500 to-blue-600",
+    bgColor: "bg-green-50",
+    borderColor: "border-green-100",
     skills: [
       { name: "Python", level: 85 },
       { name: "scikit-learn", level: 78 },
@@ -65,7 +65,7 @@ function SkillBar({
     <div ref={ref} className="mb-4 last:mb-0">
       <div className="flex justify-between items-center mb-1.5">
         <span className="text-sm font-medium text-slate-700">{name}</span>
-        <span className="text-xs text-slate-400">{level}%</span>
+        <span className="text-xs text-slate-300">{level}%</span>
       </div>
       <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
         <motion.div
@@ -93,13 +93,13 @@ export function Skills() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-violet-600 font-medium text-sm uppercase tracking-widest mb-3">
+          <p className="text-blue-600 font-medium text-sm uppercase tracking-widest mb-3">
             What I work with
           </p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
             Skills &amp; Technologies
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto" />
         </motion.div>
 
         {/* Skill Cards */}
@@ -148,7 +148,7 @@ export function Skills() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.7 + i * 0.03 }}
-                className="px-4 py-1.5 bg-white rounded-full text-slate-600 text-sm border border-slate-200 hover:border-violet-300 hover:text-violet-700 hover:bg-violet-50 transition-all duration-200 cursor-default shadow-sm"
+                className="px-4 py-1.5 bg-white rounded-full text-slate-600 text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-700 hover:bg-blue-50 transition-all duration-200 cursor-default shadow-sm"
               >
                 {tag}
               </motion.span>

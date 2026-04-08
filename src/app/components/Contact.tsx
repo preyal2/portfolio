@@ -16,14 +16,14 @@ const contactInfo = [
     label: "Location",
     value: "Mehsana, Gujarat, India",
     href: "https://maps.google.com/?q=Mehsana,Gujarat,India",
-    color: "from-violet-500 to-purple-600",
+    color: "from-blue-500 to-purple-600",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/preyalmodi",
     href: "https://www.linkedin.com/in/preyalmodi",
-    color: "from-indigo-500 to-blue-600",
+    color: "from-green-500 to-blue-600",
   },
   {
     icon: Github,
@@ -84,13 +84,13 @@ export function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-violet-600 font-medium text-sm uppercase tracking-widest mb-3">
+          <p className="text-blue-600 font-medium text-sm uppercase tracking-widest mb-3">
             Say hello
           </p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
             Get In Touch
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto mb-6" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto mb-6" />
           <p className="text-slate-500 max-w-lg mx-auto">
             Whether you have a project idea, internship opportunity, or just want
             to connect — I'd love to hear from you!
@@ -111,7 +111,7 @@ export function Contact() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-violet-200 hover:shadow-md transition-all duration-200 group"
+                className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all duration-200 group"
               >
                 <div
                   className={`w-11 h-11 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center flex-shrink-0`}
@@ -119,8 +119,8 @@ export function Contact() {
                   <Icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 mb-0.5">{label}</p>
-                  <p className="font-medium text-slate-700 group-hover:text-violet-700 transition-colors text-sm">
+                  <p className="text-xs text-slate-300 mb-0.5">{label}</p>
+                  <p className="font-medium text-slate-700 group-hover:text-blue-700 transition-colors text-sm">
                     {value}
                   </p>
                 </div>
@@ -128,12 +128,12 @@ export function Contact() {
             ))}
 
             {/* Availability Badge */}
-            <div className="mt-2 p-5 bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl text-white">
+            <div className="mt-2 p-5 bg-gradient-to-br from-blue-600 to-green-700 rounded-2xl text-white">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-sm font-medium">Open to opportunities</span>
               </div>
-              <p className="text-violet-200 text-sm">
+              <p className="text-blue-200 text-sm">
                 Currently looking for internships and project collaborations. Based in
                 Mehsana, Gujarat — open to remote work too!
               </p>
@@ -209,7 +209,7 @@ export function Contact() {
                       setSubmitted(false);
                       setForm({ name: "", email: "", subject: "", message: "" });
                     }}
-                    className="mt-6 px-5 py-2 rounded-full border border-slate-200 text-slate-600 text-sm hover:border-violet-300 hover:text-violet-700 transition-all"
+                    className="mt-6 px-5 py-2 rounded-full border border-slate-200 text-slate-600 text-sm hover:border-blue-300 hover:text-blue-700 transition-all"
                   >
                     Send another
                   </button>
@@ -228,7 +228,7 @@ export function Contact() {
                         onChange={handleChange}
                         required
                         placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                       />
                     </div>
                     <div>
@@ -242,7 +242,7 @@ export function Contact() {
                         onChange={handleChange}
                         required
                         placeholder="your@email.com"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                       />
                     </div>
                   </div>
@@ -258,7 +258,7 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Internship / Collaboration / Project"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100 transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                     />
                   </div>
 
@@ -273,14 +273,14 @@ export function Contact() {
                       required
                       rows={5}
                       placeholder="Hi Preyal, I'd love to connect about..."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100 transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 placeholder-slate-400 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-green-600 text-white font-medium hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {loading ? (
                       <>

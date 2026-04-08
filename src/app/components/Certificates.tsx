@@ -31,7 +31,7 @@ const certificates: Certificate[] = [
     date: "November 11, 2025",
     image: "/cert-data-privacy.jpg",
     category: "Data Privacy",
-    color: "from-blue-500 to-indigo-600",
+    color: "from-blue-500 to-green-600",
     badge: "🛡️",
   },
   {
@@ -61,7 +61,7 @@ const certificates: Certificate[] = [
     date: "December 11, 2025",
     image: "/cert-intel-ai.jpg",
     category: "Artificial Intelligence",
-    color: "from-violet-500 to-purple-600",
+    color: "from-blue-500 to-purple-600",
     badge: "🤖",
   },
 ];
@@ -81,13 +81,13 @@ export function Certificates() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-violet-600 font-medium text-sm uppercase tracking-widest mb-3">
+          <p className="text-blue-600 font-medium text-sm uppercase tracking-widest mb-3">
             My Achievements
           </p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
             Certificates
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto mb-6" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto mb-6" />
           <p className="text-slate-500 max-w-xl mx-auto">
             Recognized achievements and certifications earned through participation, learning, and commitment to excellence.
           </p>
@@ -102,7 +102,7 @@ export function Certificates() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               onClick={() => setSelected(cert)}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-violet-200 shadow-sm hover:shadow-xl hover:shadow-violet-100/50 transition-all duration-300"
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-xl hover:shadow-blue-100/50 transition-all duration-300"
             >
               {/* Certificate Image */}
               <div className="relative h-48 overflow-hidden bg-slate-50">
@@ -146,13 +146,13 @@ export function Certificates() {
 
               {/* Card Content */}
               <div className="p-5">
-                <h3 className="font-bold text-slate-800 mb-1 group-hover:text-violet-700 transition-colors leading-snug">
+                <h3 className="font-bold text-slate-800 mb-1 group-hover:text-blue-700 transition-colors leading-snug">
                   {cert.title}
                 </h3>
-                <p className="text-violet-600 text-sm font-medium mb-1">
+                <p className="text-blue-600 text-sm font-medium mb-1">
                   {cert.issuer}
                 </p>
-                <p className="text-slate-400 text-xs">{cert.date}</p>
+                <p className="text-slate-300 text-xs">{cert.date}</p>
               </div>
             </motion.div>
           ))}
@@ -181,7 +181,7 @@ export function Certificates() {
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <div>
                   <h3 className="font-bold text-slate-800">{selected.title}</h3>
-                  <p className="text-violet-600 text-sm">{selected.issuer}</p>
+                  <p className="text-blue-600 text-sm">{selected.issuer}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <a
@@ -218,7 +218,7 @@ export function Certificates() {
                 >
                   {selected.category}
                 </span>
-                <span className="text-slate-400 text-xs">{selected.date}</span>
+                <span className="text-slate-300 text-xs">{selected.date}</span>
               </div>
             </motion.div>
           </motion.div>
