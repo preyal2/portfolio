@@ -178,6 +178,24 @@ export function Contact() {
                   Email
                 </a>
               </div>
+              {/* Extra buttons */}
+              <div className="flex gap-3 flex-wrap mt-3">
+                <a
+                  href="https://wa.me/919999999999"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xs font-medium hover:opacity-90 transition-opacity"
+                >
+                  💬 WhatsApp
+                </a>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-600 text-white text-xs font-medium hover:opacity-90 transition-opacity"
+                >
+                  📄 Download CV
+                </a>
+              </div>
             </div>
           </motion.div>
 

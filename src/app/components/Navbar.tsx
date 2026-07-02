@@ -81,15 +81,24 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <a
-          href="https://www.linkedin.com/in/preyalmodi"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-green-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-200 transition-all duration-200 hover:-translate-y-0.5"
-        >
-          LinkedIn
-        </a>
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://www.linkedin.com/in/preyalmodi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-green-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-200 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:shadow-lg hover:shadow-slate-900/20 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Resume
+          </a>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
