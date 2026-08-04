@@ -1,186 +1,249 @@
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
-import { GraduationCap, MapPin, Calendar, Code2, BrainCircuit, Palette } from "lucide-react";
+import { SectionHeader } from "./SectionHeader";
+import {
+  MapPin, Mail, Phone, GraduationCap, Briefcase, Award,
+  Target, CheckCircle2, Linkedin, Github,
+} from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-const stats = [
-  { value: "2", label: "Internships" },
-  { value: "10+", label: "Projects Built" },
-  { value: "2", label: "Degrees" },
-  { value: "2026", label: "Available From" },
+// ─── Recruiter-priority "Quick Snapshot" data ──────────────────────────────
+const snapshot = [
+  { label: "Looking For",  value: "SWE / AI / ML Internships & Jobs", icon: Target,           color: "#2563EB" },
+  { label: "Education",    value: "B.E. Computer Engineering",  icon: GraduationCap,    color: "#7C3AED" },
+  { label: "Experience",   value: "3+ Internships Completed",   icon: Briefcase,        color: "#22C55E" },
+  { label: "Certifications",value: "30+ Certificates & Badges", icon: Award,            color: "#F59E0B" },
 ];
 
-const education = [
-  {
-    icon: GraduationCap,
-    school: "Gujarat Power Engineering and Research Institute",
-    degree: "Bachelor of Engineering — Computer Engineering",
-    period: "2025 – 2028",
-    skills: ["Web Design", "Software Development"],
-    color: "from-blue-500 to-purple-600",
-  },
-  {
-    icon: GraduationCap,
-    school: "K D Polytechnic",
-    degree: "Diploma in Computer Engineering",
-    period: "2022 – 2025",
-    skills: ["Machine Learning", "Web Design"],
-    color: "from-green-500 to-blue-600",
-  },
-];
-
-const highlights = [
-  {
-    icon: MapPin,
-    title: "Mehsana, Gujarat, India",
-    subtitle: "Open to remote opportunities",
-    color: "from-pink-500 to-rose-500",
-  },
-  {
-    icon: Calendar,
-    title: "Available from 2026",
-    subtitle: "Open to internships & full-time roles",
-    color: "from-emerald-500 to-teal-600",
-  },
-];
-
-const interests = [
-  { icon: BrainCircuit, label: "Machine Learning" },
-  { icon: Code2, label: "Software Development" },
-  { icon: Palette, label: "Web Design" },
+// ─── Core competencies as recruiter-scannable bullets ──────────────────────
+const strengths = [
+  "Builds AI-powered web applications end-to-end",
+  "Machine Learning: data prep, model training & evaluation",
+  "Full-Stack: React, Tailwind, Node.js, MySQL",
+  "Python developer — Pandas, NumPy, Scikit-learn, TensorFlow",
+  "Active on LeetCode — daily DSA practice streak",
+  "Strong communicator, fast learner, team player",
 ];
 
 export function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" className="py-24 bg-white" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <p className="text-blue-600 font-medium text-sm uppercase tracking-widest mb-3">
-            Get to know me
-          </p>
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto" />
-        </motion.div>
+    <section
+      id="about"
+      className="relative section-padding overflow-hidden"
+      style={{ background: "#0A0A0A" }}
+    >
+      {/* Background accents */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute right-[-180px] top-[-80px] w-[450px] h-[450px] rounded-full opacity-[0.07]"
+          style={{ background: "radial-gradient(circle, #7C3AED, transparent 70%)", filter: "blur(60px)" }}
+        />
+        <div className="absolute inset-0 dot-pattern opacity-20" />
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left: Story */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <SectionHeader
+          badge="About Me"
+          title="Who I"
+          highlight="Am"
+          subtitle="A Computer Engineering student building AI-powered applications and growing every single day."
+        />
+
+        <div className="grid lg:grid-cols-[340px_1fr] gap-10 items-start">
+          {/* ── LEFT COLUMN: Profile + Quick Snapshot ── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-5"
           >
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Software Development &{" "}
-              <span className="text-blue-600">Systems Design</span>
-            </h3>
-            <p className="text-slate-600 leading-relaxed mb-4">
-              Hi, I'm <strong>Preyal Modi</strong> — a dedicated Computer Engineering student
-              from Mehsana, Gujarat, with a strong foundation in software development,
-              systems design, and machine learning. I believe in building solutions that
-              are not just functional but also thoughtfully designed.
-            </p>
-            <p className="text-slate-600 leading-relaxed mb-6">
-              I've gained real-world experience through internships at{" "}
-              <strong>InfoLabz</strong> (Machine Learning) and{" "}
-              <strong>Flu Social</strong> (Web Design & Development). I'm passionate about
-              combining ML intelligence with beautiful web interfaces to create impactful
-              digital products.
-            </p>
+            {/* Profile photo */}
+            <div
+              className="rounded-2xl overflow-hidden w-full aspect-square max-w-[280px] mx-auto lg:mx-0"
+              style={{
+                border: "1px solid rgba(255,255,255,0.08)",
+                boxShadow: "0 0 50px rgba(37,99,235,0.12)",
+              }}
+            >
+              <ImageWithFallback
+                src="/profile.png"
+                alt="Preyal Modi — Computer Engineering Student"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-            {/* Interests */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              {interests.map(({ icon: Icon, label }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-full text-slate-600 text-sm border border-slate-100 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200"
+            {/* Name + location badge */}
+            <div className="text-center lg:text-left">
+              <h3
+                className="text-white font-bold text-xl mb-1"
+                style={{ fontFamily: "Poppins,sans-serif" }}
+              >
+                Preyal Modi
+              </h3>
+              <p className="text-[#A1A1AA] text-sm flex items-center gap-1.5 justify-center lg:justify-start">
+                <MapPin className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
+                Mehsana, Gujarat, India
+              </p>
+            </div>
+
+            {/* Contact mini-row */}
+            <div className="flex flex-col gap-2">
+              {[
+                { icon: Mail,     value: "modipreyal@gmail.com",        href: "mailto:modipreyal@gmail.com",           color: "#2563EB" },
+                { icon: Phone,    value: "+91 9104830813",               href: "tel:+919104830813",                     color: "#22C55E" },
+                { icon: Linkedin, value: "linkedin.com/in/preyalmodi",   href: "https://www.linkedin.com/in/preyalmodi",color: "#60A5FA" },
+                { icon: Github,   value: "github.com/preyal2",           href: "https://github.com/preyal2",           color: "#A1A1AA" },
+              ].map(({ icon: Icon, value, href, color }) => (
+                <a
+                  key={value}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/[0.04] group"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                  }}
                 >
-                  <Icon className="w-3.5 h-3.5" />
-                  {label}
-                </div>
+                  <div
+                    className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${color}15` }}
+                  >
+                    <Icon className="w-3.5 h-3.5" style={{ color }} />
+                  </div>
+                  <span
+                    className="text-xs text-[#A1A1AA] group-hover:text-white transition-colors truncate"
+                    style={{ fontFamily: "JetBrains Mono,monospace" }}
+                  >
+                    {value}
+                  </span>
+                </a>
               ))}
             </div>
 
-            {/* Highlights */}
-            <div className="flex flex-col gap-3">
-              {highlights.map(({ icon: Icon, title, subtitle, color }) => (
-                <div key={title} className="flex items-center gap-4">
+            {/* Quick Snapshot — most recruiter-relevant */}
+            <div
+              className="rounded-2xl p-4 flex flex-col gap-3"
+              style={{
+                background: "rgba(37,99,235,0.04)",
+                border: "1px solid rgba(37,99,235,0.14)",
+              }}
+            >
+              <p
+                className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1"
+                style={{ fontFamily: "JetBrains Mono,monospace" }}
+              >
+                ⚡ Quick Snapshot
+              </p>
+              {snapshot.map(({ label, value, icon: Icon, color }) => (
+                <div key={label} className="flex items-start gap-3">
                   <div
-                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center flex-shrink-0`}
+                    className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{ background: `${color}15` }}
                   >
-                    <Icon className="w-5 h-5 text-white" />
+                    <Icon className="w-3.5 h-3.5" style={{ color }} />
                   </div>
-                  <div>
-                    <p className="font-medium text-slate-800 text-sm">{title}</p>
-                    <p className="text-slate-500 text-xs">{subtitle}</p>
+                  <div className="min-w-0">
+                    <p className="text-[#71717A] text-[10px] uppercase tracking-wider font-semibold">
+                      {label}
+                    </p>
+                    <p className="text-white text-sm font-semibold leading-snug" style={{ fontFamily: "Poppins,sans-serif" }}>
+                      {value}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right: Stats + Education */}
+          {/* ── RIGHT COLUMN: Story + Strengths ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-7"
           >
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              {stats.map(({ value, label }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
-                  className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-100 text-center hover:shadow-md transition-shadow duration-200"
-                >
-                  <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-1">
-                    {value}
-                  </p>
-                  <p className="text-slate-500 text-sm">{label}</p>
-                </motion.div>
-              ))}
+            {/* Bio — short, skimmable */}
+            <div>
+              <h3
+                className="text-white font-bold text-2xl mb-4"
+                style={{ fontFamily: "Poppins,sans-serif" }}
+              >
+                Computer Engineering Student &amp;{" "}
+                <span className="gradient-text">AI Builder</span>
+              </h3>
+              <div className="space-y-3 text-[#A1A1AA] leading-relaxed text-[15px]" style={{ fontFamily: "Inter,sans-serif" }}>
+                <p>
+                  I'm a <strong className="text-white">3rd-year Computer Engineering student</strong> at Gujarat Technological University,
+                  passionate about <strong className="text-white">Artificial Intelligence, Machine Learning, and Cloud Computing</strong>.
+                  I build practical AI-powered applications and ship real projects — not just coursework.
+                </p>
+                <p>
+                  Through <strong className="text-white">3+ industry internships</strong> (Emerging Tech at Edunet × AICTE, ML at InfoLabz, and Web Dev at Flu Social),
+                  I have worked on real-world codebases, collaborated in teams, and delivered production-ready solutions.
+                </p>
+                <p>
+                  I maintain a <strong className="text-white">daily LeetCode practice habit</strong> and hold{" "}
+                  <strong className="text-white">30+ verified certifications &amp; badges</strong> from IBM SkillsBuild, Edunet, NPTEL IIT Roorkee, and GTU-ITR.
+                  My goal is to grow into a <strong className="text-white">Software Engineer specializing in AI and Cloud Technologies</strong>.
+                </p>
+              </div>
             </div>
 
-            {/* Education Cards */}
-            <div className="flex flex-col gap-4">
-              {education.map(({ icon: Icon, school, degree, period, skills, color }, i) => (
-                <motion.div
-                  key={school}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                  className={`bg-gradient-to-br ${color} rounded-2xl p-5 text-white`}
+            {/* Core Strengths — recruiter checklist */}
+            <div>
+              <div
+                className="rounded-2xl p-5"
+                style={{
+                  background: "rgba(21,21,21,0.8)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                <p
+                  className="text-white font-bold text-sm mb-4 flex items-center gap-2"
+                  style={{ fontFamily: "Poppins,sans-serif" }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-bold text-sm mb-0.5">{school}</p>
-                      <p className="text-white/80 text-xs mb-2">{degree}</p>
-                      <p className="text-white/60 text-xs mb-3">{period}</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {skills.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2.5 py-0.5 rounded-full bg-white/15 text-xs text-white/90"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  What I Bring to the Table
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-2.5">
+                  {strengths.map((s) => (
+                    <li
+                      key={s}
+                      className="flex items-start gap-2.5 text-sm text-[#A1A1AA] leading-snug"
+                    >
+                      <span className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      </span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Stat bar — key numbers at a glance */}
+            <div className="grid grid-cols-4 gap-3">
+              {[
+                { value: "10+",  label: "Projects",       color: "#2563EB" },
+                { value: "3+",   label: "Internships",    color: "#7C3AED" },
+                { value: "30+",  label: "Certificates",   color: "#F59E0B" },
+                { value: "365+", label: "Days Coding",    color: "#22C55E" },
+              ].map(({ value, label, color }) => (
+                <motion.div
+                  key={label}
+                  whileHover={{ y: -3 }}
+                  className="glass-card rounded-xl py-4 px-3 text-center cursor-default"
+                  style={{ border: `1px solid ${color}18` }}
+                >
+                  <p
+                    className="font-extrabold text-2xl mb-0.5"
+                    style={{ color, fontFamily: "Poppins,sans-serif" }}
+                  >
+                    {value}
+                  </p>
+                  <p className="text-[#71717A] text-xs leading-snug">{label}</p>
                 </motion.div>
               ))}
             </div>

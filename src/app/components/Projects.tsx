@@ -1,228 +1,488 @@
-import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "motion/react";
-import { ExternalLink, Github, Monitor, Database, CloudRain, Layers, ShieldCheck } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { SectionHeader } from "./SectionHeader";
+import { Github, ExternalLink, Star, Filter, ChevronDown, ChevronUp } from "lucide-react";
 
-type Project = {
+type FilterType = "all" | "ai" | "web" | "ml" | "practice";
+
+const filters: { id: FilterType; label: string }[] = [
+  { id: "all", label: "All Projects" },
+  { id: "ai", label: "AI" },
+  { id: "web", label: "Web" },
+  { id: "ml", label: "Machine Learning" },
+  { id: "practice", label: "Coding Practice" },
+];
+
+interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
-  tags: string[];
-  features: string[];
-  category: string;
-  github: string;
-  live: string;
-  icon: any;
-  color: string;
-};
+  tags: FilterType[];
+  tech: string[];
+  live: string | null;
+  github: string | null;
+  featured: boolean;
+  emoji: string;
+  gradient: string;
+  colorPrimary: string;
+  colorSecondary: string;
+  keyFeatures: string[];
+  challenges: string;
+  learning: string[];
+}
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Portfolio Website",
-    description: "A highly responsive, modern dark-themed personal portfolio showcasing professional web development skills with dynamic filtering.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["React", "Tailwind CSS", "TypeScript", "Framer Motion"],
-    features: ["Modern dark aesthetics", "Smooth scroll animations", "Responsive Grid UI"],
-    category: "web",
-    github: "https://github.com/preyal2",
-    live: "#",
-    icon: Layers,
-    color: "from-blue-500 to-green-500",
+    title: "Smart Recipe Preparation Agent",
+    description:
+      "An AI-powered recipe preparation web application that helps users discover recipes, ingredients, and cooking instructions through a clean, responsive, and user-friendly interface.",
+    tags: ["ai", "web"] as FilterType[],
+    tech: ["HTML", "CSS", "JavaScript", "AI", "Responsive Design"],
+    live: "https://recipepreparationagent.netlify.app/",
+    github: "https://github.com/preyal2/SmartRecipePreparationAgent",
+    featured: true,
+    emoji: "🍳",
+    gradient: "from-orange-600 via-red-600 to-pink-600",
+    colorPrimary: "#F97316",
+    colorSecondary: "#EC4899",
+    keyFeatures: [
+      "AI-driven recipe discovery and recommendation engine",
+      "Smart ingredient list with quantity scaling",
+      "Step-by-step cooking instructions with timers",
+      "Fully responsive design across all devices",
+    ],
+    challenges:
+      "Integrating an AI agent into a pure HTML/CSS/JS architecture without a backend framework required careful API orchestration and graceful error handling.",
+    learning: ["AI API Integration", "UX Design", "Vanilla JS Architecture"],
   },
   {
     id: 2,
-    title: "Library Management System",
-    description: "A comprehensive OOP-driven application to manage library inventory, handle borrow/return logic, and track student records securely.",
-    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["Java", "OOP", "MySQL", "JDBC"],
-    features: ["Add/Remove books", "Issue & Return logic", "Late fine calculation"],
-    category: "software",
-    github: "https://github.com/preyal2",
-    live: "#",
-    icon: Database,
-    color: "from-blue-400 to-blue-600",
+    title: "Personalized Nutrition Agent",
+    description:
+      "An AI-powered nutrition assistant that recommends personalized diet plans using user preferences such as age, food choices, health conditions, and location.",
+    tags: ["ai", "ml"] as FilterType[],
+    tech: ["AI", "JavaScript", "React", "Machine Learning"],
+    live: null,
+    github: null,
+    featured: false,
+    emoji: "🥗",
+    gradient: "from-green-600 via-emerald-600 to-teal-600",
+    colorPrimary: "#22C55E",
+    colorSecondary: "#38BDF8",
+    keyFeatures: [
+      "User profiling via age, health goals, and dietary preferences",
+      "AI-generated personalized meal plans",
+      "Nutritional breakdown per recommended meal",
+      "Location-aware food suggestions",
+    ],
+    challenges:
+      "Building a reliable AI model that accounts for diverse dietary restrictions and local food availability while maintaining recommendation quality.",
+    learning: ["Health AI", "Personalization Algorithms", "React State Management"],
   },
   {
     id: 3,
-    title: "Weather App",
-    description: "A real-time weather forecasting application fetching live location-based climatic conditions via RESTful APIs.",
-    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["JavaScript", "OpenWeather API", "HTML/CSS"],
-    features: ["Live weather search", "5-day forecast mapping", "Auto location detection"],
-    category: "api",
-    github: "https://github.com/preyal2",
-    live: "#",
-    icon: CloudRain,
-    color: "from-green-400 to-green-600",
+    title: "Developer Portfolio",
+    description:
+      "A modern developer portfolio showcasing projects, internships, certifications, GitHub stats, skills, and achievements with premium animations and fully responsive design.",
+    tags: ["web"] as FilterType[],
+    tech: ["React", "Tailwind CSS", "Vite", "TypeScript", "Framer Motion"],
+    live: "https://preyal1portfolio.netlify.app/",
+    github: "https://github.com/preyal2/portfolio",
+    featured: false,
+    emoji: "💼",
+    gradient: "from-blue-600 via-violet-600 to-purple-600",
+    colorPrimary: "#2563EB",
+    colorSecondary: "#7C3AED",
+    keyFeatures: [
+      "Live GitHub API & LeetCode stats integration",
+      "Glassmorphism dark theme with custom cursor",
+      "Animated section reveals and micro-interactions",
+      "Certificate viewer with modal & download",
+    ],
+    challenges:
+      "Architecting a fast, accessible SPA with multiple live API calls while keeping Lighthouse score high through lazy loading and optimized assets.",
+    learning: ["React Architecture", "API Integration", "Performance Optimization"],
   },
   {
     id: 4,
-    title: "Online Shopping Cart",
-    description: "A dynamic frontend e-commerce web application that allows users to browse products, manage their cart, and simulate checkout.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["HTML", "CSS", "JavaScript"],
-    features: ["Add to cart functionality", "Dynamic price calculation", "Responsive checkout UI"],
-    category: "web",
-    github: "https://github.com/preyal2",
-    live: "#",
-    icon: Monitor,
-    color: "from-blue-500 to-slate-400",
+    title: "Daily LeetCode",
+    description:
+      "A repository containing daily Data Structures and Algorithms solutions demonstrating consistency, problem-solving skills, and rigorous interview preparation.",
+    tags: ["practice"] as FilterType[],
+    tech: ["Python", "Java", "Data Structures", "Algorithms", "DSA"],
+    live: null,
+    github: "https://github.com/preyal2/daily-leetcode",
+    featured: false,
+    emoji: "⚡",
+    gradient: "from-amber-500 via-orange-500 to-red-500",
+    colorPrimary: "#F59E0B",
+    colorSecondary: "#F97316",
+    keyFeatures: [
+      "Organised by problem category (Arrays, Trees, DP, Graphs)",
+      "Multiple language solutions (Python + Java)",
+      "Consistent daily commit streak",
+      "Annotated with time & space complexity analysis",
+    ],
+    challenges:
+      "Maintaining daily consistency while balancing internships, coursework, and project development without sacrificing solution quality.",
+    learning: ["DSA Mastery", "Problem Patterns", "Interview Readiness"],
   },
 ];
 
-const filters = ["All", "web", "software", "api"];
-const filterLabels: Record<string, string> = {
-  All: "All Projects",
-  web: "Web Development",
-  software: "Programming / OOP",
-  api: "API / Mini Projects",
-};
-
-export function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  const filtered =
-    activeFilter === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+function ProjectCard({ project }: { project: Project }) {
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="projects" className="py-24 bg-[#0F172A]" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <p className="text-green-500 font-medium text-sm uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
-            <ShieldCheck className="w-4 h-4" /> Feature Work
-          </p>
-          <h2 className="text-4xl font-bold text-white mb-4">Real-World Projects</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 rounded-full mx-auto mb-6" />
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Practical projects built with clean code and modern technologies demonstrating both front-end aesthetics and backend logic.
-          </p>
-        </motion.div>
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+      className="glass-card rounded-2xl overflow-hidden group relative flex flex-col"
+      style={{ border: `1px solid ${project.colorPrimary}20` }}
+    >
+      {/* Gradient banner */}
+      <div
+        className={`h-28 w-full bg-gradient-to-br ${project.gradient} relative flex items-center justify-center flex-shrink-0`}
+      >
+        {/* Subtle noise overlay on banner */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")"
+        }} />
+        <span className="text-5xl drop-shadow-lg relative z-10">{project.emoji}</span>
+        {project.featured && (
+          <span
+            className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold"
+            style={{
+              background: "rgba(0,0,0,0.35)",
+              border: "1px solid rgba(245,158,11,0.5)",
+              color: "#FCD34D",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <Star className="w-3 h-3 fill-current" />
+            Featured
+          </span>
+        )}
+      </div>
 
-        {/* Filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-        >
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-sm ${
-                activeFilter === f
-                  ? "bg-blue-600 text-white shadow-blue-500/20 shadow-lg scale-105"
-                  : "bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 hover:text-white"
-              }`}
+      {/* Hover glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at top, ${project.colorPrimary}08, transparent 55%)`,
+        }}
+      />
+
+      {/* Card body */}
+      <div className="p-6 relative z-10 flex flex-col flex-1">
+        {/* Title row */}
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <h3
+            className="text-white font-bold text-lg leading-snug"
+            style={{ fontFamily: "Poppins,sans-serif" }}
+          >
+            {project.title}
+          </h3>
+          {/* Action icons — top right */}
+          <div className="flex gap-1.5 flex-shrink-0">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View code on GitHub"
+                className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "#A1A1AA",
+                }}
+                title="View on GitHub"
+              >
+                <Github className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open live demo"
+                className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                style={{
+                  background: `${project.colorPrimary}15`,
+                  border: `1px solid ${project.colorPrimary}30`,
+                  color: project.colorPrimary,
+                }}
+                title="Live Demo"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-[#A1A1AA] text-sm leading-relaxed mb-4">
+          {project.description}
+        </p>
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="px-2.5 py-1 rounded-full text-xs font-medium"
+              style={{
+                background: `${project.colorPrimary}10`,
+                border: `1px solid ${project.colorPrimary}20`,
+                color: project.colorPrimary,
+                fontFamily: "JetBrains Mono,monospace",
+              }}
             >
-              {filterLabels[f]}
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* Expand toggle */}
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="flex items-center gap-1.5 text-xs font-semibold transition-colors duration-200 mb-3 self-start"
+          style={{ color: project.colorPrimary }}
+        >
+          {expanded ? (
+            <>
+              <ChevronUp className="w-3.5 h-3.5" /> Hide Details
+            </>
+          ) : (
+            <>
+              <ChevronDown className="w-3.5 h-3.5" /> Key Features &amp; Learnings
+            </>
+          )}
+        </button>
+
+        {/* Expanded details */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              {/* Key Features */}
+              <div className="mb-3">
+                <p
+                  className="text-white text-xs font-bold uppercase tracking-wide mb-2"
+                  style={{ fontFamily: "JetBrains Mono,monospace" }}
+                >
+                  Key Features
+                </p>
+                <ul className="space-y-1">
+                  {project.keyFeatures.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-2 text-xs text-[#A1A1AA] leading-relaxed"
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                        style={{ background: project.colorPrimary }}
+                      />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Challenge */}
+              <div className="mb-3 p-3 rounded-xl" style={{ background: `${project.colorPrimary}08`, border: `1px solid ${project.colorPrimary}15` }}>
+                <p
+                  className="text-white text-xs font-bold uppercase tracking-wide mb-1"
+                  style={{ fontFamily: "JetBrains Mono,monospace" }}
+                >
+                  Challenge Solved
+                </p>
+                <p className="text-[#A1A1AA] text-xs leading-relaxed">
+                  {project.challenges}
+                </p>
+              </div>
+
+              {/* Learning Outcomes */}
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {project.learning.map((l) => (
+                  <span
+                    key={l}
+                    className="px-2 py-0.5 rounded-md text-[10px] font-semibold"
+                    style={{
+                      background: "rgba(16,185,129,0.1)",
+                      border: "1px solid rgba(16,185,129,0.2)",
+                      color: "#34D399",
+                      fontFamily: "JetBrains Mono,monospace",
+                    }}
+                  >
+                    ✓ {l}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Bottom CTA row */}
+        <div className="flex gap-3 mt-auto pt-2">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: "#A1A1AA",
+              }}
+            >
+              <Github className="w-4 h-4" />
+              Code
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: `linear-gradient(135deg, ${project.colorPrimary}, ${project.colorSecondary})`,
+                boxShadow: `0 4px 15px ${project.colorPrimary}25`,
+              }}
+            >
+              <ExternalLink className="w-4 h-4" />
+              Live Demo
+            </a>
+          )}
+          {!project.github && !project.live && (
+            <div
+              className="flex-1 inline-flex items-center justify-center py-2.5 rounded-xl text-xs font-medium"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                color: "#71717A",
+              }}
+            >
+              🔒 In Development
+            </div>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export function Projects() {
+  const [active, setActive] = useState<FilterType>("all");
+
+  const filtered =
+    active === "all" ? projects : projects.filter((p) => p.tags.includes(active));
+
+  return (
+    <section
+      id="projects"
+      className="relative section-padding overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #0D0D16 0%, #0A0A0A 100%)" }}
+    >
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-[0.06]"
+          style={{
+            background: "radial-gradient(ellipse, #7C3AED, transparent 70%)",
+            filter: "blur(80px)",
+          }}
+        />
+        <div className="absolute inset-0 dot-pattern opacity-15" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <SectionHeader
+          badge="Featured Work"
+          title="My"
+          highlight="Projects"
+          subtitle="Building practical solutions at the intersection of AI, Web, and Data."
+        />
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          <Filter className="w-4 h-4 text-[#A1A1AA] self-center mr-1" />
+          {filters.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => setActive(id)}
+              className="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              style={{
+                background:
+                  active === id
+                    ? "linear-gradient(135deg,#2563EB,#7C3AED)"
+                    : "rgba(255,255,255,0.04)",
+                border:
+                  active === id
+                    ? "1px solid transparent"
+                    : "1px solid rgba(255,255,255,0.08)",
+                color: active === id ? "#FFFFFF" : "#A1A1AA",
+                boxShadow:
+                  active === id ? "0 4px 20px rgba(37,99,235,0.3)" : "none",
+              }}
+            >
+              {label}
             </button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-700 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col h-full"
-              >
-                {/* Image Section */}
-                <div className="relative h-60 overflow-hidden">
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-transparent transition-colors duration-500" />
-                  
-                  {/* Category badge */}
-                  <div className={`absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 backdrop-blur-md text-slate-200 text-xs font-medium uppercase tracking-wider`}>
-                    <project.icon className="w-3.5 h-3.5 text-blue-400" />
-                    {filterLabels[project.category]}
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="p-7 flex flex-col flex-grow">
-                  <h3 className="font-bold text-2xl text-slate-100 mb-3 group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
-                    {project.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="mb-8">
-                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-500 mb-3">Key Features</h4>
-                    <ul className="space-y-2">
-                      {project.features.map(feature => (
-                        <li key={feature} className="text-sm text-slate-300 flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Spacer to push buttons to bottom if descriptions vary */}
-                  <div className="mt-auto">
-                    {/* Tags (Technologies) */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 text-xs font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <a 
-                        href={project.live} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-semibold transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" /> Live Demo
-                      </a>
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="flex items-center justify-center gap-2 px-4 py-3 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white rounded-xl text-sm font-semibold transition-colors"
-                      >
-                        <Github className="w-4 h-4" /> Source Code
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="grid md:grid-cols-2 gap-6"
+          >
+            {filtered.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
-          </AnimatePresence>
-        </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* View All on GitHub */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <a
+            href="https://github.com/preyal2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:-translate-y-1"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#FFFFFF",
+            }}
+          >
+            <Github className="w-4 h-4" />
+            View All Repositories on GitHub
+            <ExternalLink className="w-3.5 h-3.5 text-[#A1A1AA]" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
