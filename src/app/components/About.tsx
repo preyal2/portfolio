@@ -8,20 +8,20 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 // ─── Recruiter-priority "Quick Snapshot" data ──────────────────────────────
 const snapshot = [
-  { label: "Looking For",  value: "SWE / AI / ML Internships & Jobs", icon: Target,           color: "#2563EB" },
-  { label: "Education",    value: "B.E. Computer Engineering",  icon: GraduationCap,    color: "#7C3AED" },
-  { label: "Experience",   value: "3+ Internships Completed",   icon: Briefcase,        color: "#22C55E" },
-  { label: "Certifications",value: "30+ Certificates & Badges", icon: Award,            color: "#F59E0B" },
+  { label: "Looking For",   value: "SWE / AI / ML / Data Analytics Roles", icon: Target,        color: "#2563EB" },
+  { label: "Education",     value: "B.E. Computer Engineering (GTU)",       icon: GraduationCap, color: "#7C3AED" },
+  { label: "Experience",    value: "3+ Industry Internships Completed",     icon: Briefcase,     color: "#22C55E" },
+  { label: "DSA Practice",  value: "245+ Solved (Top Runtimes)",           icon: Award,         color: "#F59E0B" },
 ];
 
 // ─── Core competencies as recruiter-scannable bullets ──────────────────────
 const strengths = [
-  "Builds AI-powered web applications end-to-end",
-  "Machine Learning: data prep, model training & evaluation",
-  "Full-Stack: React, Tailwind, Node.js, MySQL",
-  "Python developer — Pandas, NumPy, Scikit-learn, TensorFlow",
-  "Active on LeetCode — daily DSA practice streak",
-  "Strong communicator, fast learner, team player",
+  "Exploratory Data Analysis & statistical inference (Pandas 2.x, NumPy, SQL)",
+  "Supervised ML & predictive regression modeling (Scikit-Learn, PyTorch, XGBoost)",
+  "Autonomous AI agent pipelines with Google Gemini 3.8 Flash & Web Speech AI",
+  "Modern frontend engineering with React 19, TypeScript 5.7 & Tailwind CSS",
+  "Production backend APIs & systems in FastAPI, PHP 8.3 MVC, MySQL & SQLite",
+  "Algorithmic problem-solving: 245+ LeetCode problems across 14 core patterns",
 ];
 
 export function About() {
@@ -170,23 +170,26 @@ export function About() {
                 className="text-white font-bold text-2xl mb-4"
                 style={{ fontFamily: "Poppins,sans-serif" }}
               >
-                Computer Engineering Student &amp;{" "}
-                <span className="gradient-text">AI Builder</span>
+                Data Analytics &amp; ML Engineer |{" "}
+                <span className="gradient-text">Software Developer</span>
               </h3>
               <div className="space-y-3 text-[#A1A1AA] leading-relaxed text-[15px]" style={{ fontFamily: "Inter,sans-serif" }}>
                 <p>
-                  I'm a <strong className="text-white">3rd-year Computer Engineering student</strong> at Gujarat Technological University,
-                  passionate about <strong className="text-white">Artificial Intelligence, Machine Learning, and Cloud Computing</strong>.
-                  I build practical AI-powered applications and ship real projects — not just coursework.
+                  I'm a <strong className="text-white">Computer Engineering student</strong> at Gujarat Technological University,
+                  transforming raw data into predictive intelligence and architecting resilient, production-grade applications.
                 </p>
                 <p>
-                  Through <strong className="text-white">3+ industry internships</strong> (Emerging Tech at Edunet × AICTE, ML at InfoLabz, and Web Dev at Flu Social),
-                  I have worked on real-world codebases, collaborated in teams, and delivered production-ready solutions.
+                  My engineering philosophy spans <strong className="text-white">5 Technical Pillars</strong>: Exploratory Data Analysis &amp; statistical inference (Pandas, NumPy, SQL),
+                  Supervised Machine Learning &amp; predictive modeling (Scikit-Learn, PyTorch, XGBoost), Autonomous AI Agents (Google Gemini 3.8 Flash),
+                  scalable full-stack engineering (React 19, TypeScript, Vite, FastAPI, PHP 8.3 MVC), and algorithmic problem-solving rigor.
                 </p>
                 <p>
-                  I maintain a <strong className="text-white">daily LeetCode practice habit</strong> and hold{" "}
-                  <strong className="text-white">30+ verified certifications &amp; badges</strong> from IBM SkillsBuild, Edunet, NPTEL IIT Roorkee, and GTU-ITR.
-                  My goal is to grow into a <strong className="text-white">Software Engineer specializing in AI and Cloud Technologies</strong>.
+                  Through <strong className="text-white">3+ industry internships</strong> (Emerging Tech at Edunet × AICTE, Machine Learning at InfoLabz, and Web Dev at Flu Social),
+                  I have contributed to production codebases and delivered real-world client solutions.
+                </p>
+                <p>
+                  I maintain an active <strong className="text-white">245+ solved LeetCode portfolio</strong> with top-percentile sub-millisecond runtimes,
+                  mastery of 14 interview patterns (UMPIRE), and hold <strong className="text-white">30+ verified credentials</strong> from IBM SkillsBuild, Edunet, NPTEL IIT Roorkee, and GTU.
                 </p>
               </div>
             </div>
@@ -226,10 +229,10 @@ export function About() {
             {/* Stat bar — key numbers at a glance */}
             <div className="grid grid-cols-4 gap-3">
               {[
-                { value: "10+",  label: "Projects",       color: "#2563EB" },
+                { value: "12+",  label: "Projects",       color: "#2563EB" },
+                { value: "245+", label: "DSA Solved",     color: "#F59E0B" },
                 { value: "3+",   label: "Internships",    color: "#7C3AED" },
-                { value: "30+",  label: "Certificates",   color: "#F59E0B" },
-                { value: "365+", label: "Days Coding",    color: "#22C55E" },
+                { value: "30+",  label: "Certificates",   color: "#22C55E" },
               ].map(({ value, label, color }) => (
                 <motion.div
                   key={label}

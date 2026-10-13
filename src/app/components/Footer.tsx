@@ -53,7 +53,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-[#A1A1AA] text-sm leading-relaxed mb-4">
-              Computer Engineering Student | AI Builder | Vibe Coder — building the future one commit at a time.
+              Data Analytics &amp; ML Engineer | Generative AI &amp; Autonomous Agents | Scalable Software Developer — building the future one commit at a time.
             </p>
             <div className="flex gap-3">
               {socialLinks.map(({ icon: Icon, href, label, color }) => (

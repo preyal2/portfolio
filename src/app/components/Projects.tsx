@@ -3,14 +3,15 @@ import { motion, AnimatePresence } from "motion/react";
 import { SectionHeader } from "./SectionHeader";
 import { Github, ExternalLink, Star, Filter, ChevronDown, ChevronUp } from "lucide-react";
 
-type FilterType = "all" | "ai" | "web" | "ml" | "practice";
+type FilterType = "all" | "ai" | "ml" | "analytics" | "web" | "practice";
 
 const filters: { id: FilterType; label: string }[] = [
-  { id: "all", label: "All Projects" },
-  { id: "ai", label: "AI" },
-  { id: "web", label: "Web" },
+  { id: "all", label: "All Projects (12)" },
+  { id: "ai", label: "AI & Agents" },
   { id: "ml", label: "Machine Learning" },
-  { id: "practice", label: "Coding Practice" },
+  { id: "analytics", label: "Data Analytics" },
+  { id: "web", label: "Web & Systems" },
+  { id: "practice", label: "DSA & Practice" },
 ];
 
 interface Project {
@@ -34,11 +35,203 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Smart College Transportation Portal",
+    title: "AI Technical Interview Coach & Evaluator",
+    description:
+      "A real-time intelligent mock interview coach powered by Google Gemini 3.8 Flash across 5 specialized engineering tracks (DSA, Frontend, Backend, System Design, Behavioral) with two-way voice dictation and in-browser code execution sandbox.",
+    tags: ["ai", "web"] as FilterType[],
+    tech: ["React 19", "TypeScript 5.7", "Gemini 3.8 Flash", "Web Speech API", "Tailwind CSS", "Vite 6"],
+    live: "https://preyal2.github.io/ai-interview-coach/",
+    github: "https://github.com/preyal2/ai-interview-coach",
+    featured: true,
+    emoji: "🤖",
+    gradient: "from-blue-600 via-indigo-600 to-cyan-500",
+    colorPrimary: "#38BDF8",
+    colorSecondary: "#2563EB",
+    keyFeatures: [
+      "Real-time multi-criteria scoring powered by Google Gemini 3.8 Flash across 5 tracks: DSA, Frontend, Backend, System Design, Behavioral",
+      "Full bidirectional audio: AI problem narration and speech synthesis paired with live browser voice-to-text dictation",
+      "In-browser multi-language code runner (Python, JavaScript, TypeScript, Java, C++) with time & space complexity grading",
+      "Dynamic candidate readiness scorecards with actionable category breakdowns and model answers",
+    ],
+    challenges:
+      "Orchestrating low-latency bidirectional voice streams while executing multi-tier Gemini prompt cascades and isolated code sandboxing.",
+    learning: ["Gemini 3.8 API Integration", "Web Speech API", "In-Browser Code Execution", "Voice UX Design"],
+  },
+  {
+    id: 2,
+    title: "Student Academic Performance & Exam Prediction",
+    description:
+      "A predictive machine learning pipeline forecasting Math, Reading, and Writing exam scores with supervised regression models, comprehensive EDA correlation heatmaps, residual distribution plots, and an interactive web GUI.",
+    tags: ["ml", "analytics"] as FilterType[],
+    tech: ["Python 3.11", "Scikit-Learn", "XGBoost", "Pandas 2.x", "Seaborn", "HTML5/CSS3"],
+    live: "https://preyal2.github.io/Student-Performance-Prediction/Development/frontend/",
+    github: "https://github.com/preyal2/Student-Performance-Prediction",
+    featured: true,
+    emoji: "🎯",
+    gradient: "from-violet-600 via-purple-600 to-indigo-600",
+    colorPrimary: "#A855F7",
+    colorSecondary: "#7C3AED",
+    keyFeatures: [
+      "Supervised regression pipeline forecasting Math, Reading, and Writing scores using demographic and study habit indicators",
+      "Rigorous Exploratory Data Analysis (EDA) with multi-variable correlation matrices, residual distribution plots, and RMSE optimization",
+      "Trained multiple regressors (Random Forest, XGBoost, Ridge, Lasso) with cross-validation hyperparameter tuning",
+      "Interactive prediction web interface with real-time inference execution and complete GTU academic case study documentation",
+    ],
+    challenges:
+      "Engineering high-predictive-power feature sets from categorical socio-economic data while preventing data leakage and overfitting.",
+    learning: ["Supervised Regression", "Feature Engineering", "Residual Analysis", "Model Deployment"],
+  },
+  {
+    id: 3,
+    title: "Smart Recipe Autonomous AI Culinary Agent",
+    description:
+      "An autonomous multi-step culinary AI agent that evaluates strict dietary restrictions, allergen constraints, and target calories with context-aware ingredient substitution algorithms and macro balancing.",
+    tags: ["ai", "web"] as FilterType[],
+    tech: ["TypeScript 5.7", "React 19", "Vite 6", "Autonomous Agents", "LLM Chaining", "Tailwind CSS"],
+    live: "https://recipepreparationagent.netlify.app/",
+    github: "https://github.com/preyal2/SmartRecipePreparationAgent",
+    featured: true,
+    emoji: "🧠",
+    gradient: "from-orange-600 via-amber-600 to-red-600",
+    colorPrimary: "#F97316",
+    colorSecondary: "#EA580C",
+    keyFeatures: [
+      "Autonomous multi-step LLM reasoning engine evaluating strict dietary restrictions, allergen constraints, and caloric goals",
+      "Context-aware culinary ingredient substitution algorithm utilizing semantic prompt chains and nutritional macro-balancing",
+      "Step-by-step interactive cooking instructions with synchronized preparation timers and portion scaling",
+      "Zero-runtime-error type-safe architecture engineered with TypeScript 5.7 and React 19",
+    ],
+    challenges:
+      "Designing robust LLM chain validation routines to guarantee culinary feasibility and nutritional consistency across unpredictable user inputs.",
+    learning: ["Autonomous Agent Workflows", "Semantic Prompt Chaining", "Constraint Satisfaction", "React 19"],
+  },
+  {
+    id: 4,
+    title: "DocuMorph — Lossless Word (.docx) ⇄ PDF Platform",
+    description:
+      "A high-fidelity bidirectional document conversion engine preserving complex layouts, custom fonts, multi-column tables, equations, and vector graphics with 100% on-device air-gapped security (zero cloud leakage).",
+    tags: ["web"] as FilterType[],
+    tech: ["Python 3.12", "FastAPI", "LibreOffice / COM Engine", "HTML5", "CSS3", "Glassmorphism"],
+    live: "https://preyal2.github.io/documorph-converter/",
+    github: "https://github.com/preyal2/documorph-converter",
+    featured: true,
+    emoji: "📄",
+    gradient: "from-emerald-600 via-teal-600 to-cyan-600",
+    colorPrimary: "#10B981",
+    colorSecondary: "#059669",
+    keyFeatures: [
+      "High-fidelity bidirectional conversion preserving complex layouts, custom fonts, multi-column tables, equations, and vector graphics",
+      "100% on-device air-gapped security architecture guaranteeing zero document leakage to external third-party cloud APIs",
+      "High-speed FastAPI asynchronous REST backend paired with an elegant, responsive glassmorphic web conversion portal",
+      "Automated document cleanup, mime-type verification, and streaming binary downloads",
+    ],
+    challenges:
+      "Achieving pixel-perfect layout parity across complex embedded styles without commercial proprietary cloud conversion SDKs.",
+    learning: ["FastAPI Asynchronous Pipelines", "Air-Gapped Security", "COM Automation", "Binary File Handling"],
+  },
+  {
+    id: 5,
+    title: "IronCore Gym Management & Fitness Enterprise",
+    description:
+      "A production-grade gym enterprise platform featuring decoupled MVC architecture, triple-tier RBAC (Admin, Trainer, Member), automated MySQL/SQLite PDO database fallback, and interactive Chart.js revenue analytics.",
+    tags: ["web"] as FilterType[],
+    tech: ["PHP 8.3", "MySQL", "SQLite", "Dual-Driver PDO", "JavaScript ES6+", "Chart.js", "Tailwind CSS"],
+    live: "https://preyal2.github.io/ironcore-gym-management-system/",
+    github: "https://github.com/preyal2/ironcore-gym-management-system",
+    featured: true,
+    emoji: "🏋️",
+    gradient: "from-amber-600 via-red-600 to-rose-600",
+    colorPrimary: "#EF4444",
+    colorSecondary: "#DC2626",
+    keyFeatures: [
+      "Production-ready PHP 8.3 decoupled MVC architecture with normalized 19-table database schema and cascade constraints",
+      "Automated zero-config PDO database fallback between MySQL and SQLite with dynamic SQL dialect translation",
+      "Triple-Tier Role-Based Access Control (RBAC) with BCrypt session security for Admin, Trainer, and Member portals",
+      "Financial & attendance telemetry: Interactive Chart.js graphs tracking Monthly Recurring Revenue (MRR) and attendance trends",
+    ],
+    challenges:
+      "Architecting a dual-driver database abstraction layer that transparently handles SQLite vs MySQL dialect differences with zero code duplication.",
+    learning: ["Decoupled MVC Architecture", "Database Normalization", "Dual-Driver Portability", "RBAC Security"],
+  },
+  {
+    id: 6,
+    title: "Movie Data Analytics & Box Office Intelligence",
+    description:
+      "An end-to-end Exploratory Data Analysis (EDA) pipeline analyzing 10,000+ films from 1960 to 2015 from the TMDb archive, discovering key ROI metrics, optimal runtime windows, and 50-year genre profitability heatmaps.",
+    tags: ["analytics"] as FilterType[],
+    tech: ["Python 3.12", "Pandas 2.x", "NumPy", "Matplotlib", "Seaborn Cubehelix", "Jupyter Lab"],
+    live: null,
+    github: "https://github.com/preyal2/Data-Analytics-with-Movie-Data",
+    featured: true,
+    emoji: "🎬",
+    gradient: "from-fuchsia-600 via-pink-600 to-rose-600",
+    colorPrimary: "#D946EF",
+    colorSecondary: "#C026D3",
+    keyFeatures: [
+      "Point-to-point EDA pipeline cleaning, zero-value filtering, and profit metric engineering across 10,000+ TMDb films",
+      "Quantitative proof demonstrating higher budgets yield >50% higher audience popularity with optimal 100–180 min commercial runtime",
+      "Engineered dual decade heatmaps (budget × genre × year & revenue × genre × year) mapping genre profitability over 50 years",
+      "Rigorous handling of zero-value outliers, inflation-adjusted profit margins, and distribution skewness",
+    ],
+    challenges:
+      "Handling missing and zero revenue values in historical movie records without introducing survivor bias into longitudinal ROI conclusions.",
+    learning: ["Longitudinal EDA", "Multivariate Correlation", "Seaborn Cubehelix Heatmaps", "Hypothesis Testing"],
+  },
+  {
+    id: 7,
+    title: "Modern Developer Portfolio & Digital Showcase",
+    description:
+      "A modern, high-performance developer portfolio built with React 19, TypeScript 5.7, Tailwind CSS, and Vite 6 — featuring live GitHub and LeetCode API telemetry, glassmorphic UI, and automated CI/CD.",
+    tags: ["web"] as FilterType[],
+    tech: ["React 19", "TypeScript 5.7", "Tailwind CSS", "Vite 6", "Framer Motion", "CI/CD"],
+    live: "https://portfolio-preyal2s-projects.vercel.app",
+    github: "https://github.com/preyal2/portfolio",
+    featured: false,
+    emoji: "🌐",
+    gradient: "from-blue-600 via-violet-600 to-purple-600",
+    colorPrimary: "#3B82F6",
+    colorSecondary: "#7C3AED",
+    keyFeatures: [
+      "Ultra-responsive interactive UI engineered with React 19, TypeScript, and modern glassmorphic Tailwind styling",
+      "Live API telemetry integration fetching real-time GitHub repositories, commit graphs, and LeetCode algorithmic stats",
+      "Interactive Recruiter Action Hub with 1-click modal, direct PDF resume download, and verified certification viewer",
+      "Dual deployment pipelines automated across Vercel and Netlify with instant build verifications",
+    ],
+    challenges:
+      "Architecting a fast, accessible SPA with multiple live API calls while keeping Lighthouse score high through lazy loading and optimized assets.",
+    learning: ["React 19 Architecture", "Strict TypeScript", "Performance Optimization", "Automated CI/CD"],
+  },
+  {
+    id: 8,
+    title: "Enterprise Campus Network Architecture & Simulation",
+    description:
+      "Modular Core, Distribution, and Access hierarchical enterprise campus network design featuring Router-on-a-Stick inter-VLAN routing, dynamic OSPF routing, DHCP pools, and extended Cisco IOS ACL traffic isolation.",
+    tags: ["web"] as FilterType[],
+    tech: ["Cisco IOS", "Packet Tracer (.pkt)", "MikroTik RouterOS", "802.1Q VLANs", "Multi-Area OSPF", "ACLs"],
+    live: "https://github.com/preyal2/Campus-Network-Design-and-Implementation/blob/main/College%20Campus%20Network%20Design%20and%20Configuration.pdf",
+    github: "https://github.com/preyal2/Campus-Network-Design-and-Implementation",
+    featured: false,
+    emoji: "🏫",
+    gradient: "from-sky-600 via-blue-600 to-indigo-600",
+    colorPrimary: "#0284C7",
+    colorSecondary: "#1D4ED8",
+    keyFeatures: [
+      "Hierarchical campus topology: Modular Core, Distribution, and Access layers serving Academic, Administrative, Hostel, and Guest zones",
+      "Inter-VLAN & Multi-Area OSPF: Robust Router-on-a-Stick sub-interfaces, dynamic OSPF routing with cost metrics, and central DHCP pools",
+      "Enterprise Security Matrix: Extended Cisco IOS Access Control Lists (ACLs) isolating administrative servers and student networks",
+      "Comprehensive GTU case study report with complete topology blueprints, CLI scripts, and packet captures",
+    ],
+    challenges:
+      "Calculating optimal subnet boundaries and VLSM addressing to avoid route summarization overhead across multi-building campuses.",
+    learning: ["Hierarchical Network Design", "802.1Q Trunking", "OSPF Routing Convergence", "Enterprise ACLs"],
+  },
+  {
+    id: 9,
+    title: "Smart College Transit & IoT Radar Simulation",
     description:
       "A modern, interactive College Transportation Web Platform featuring real-time GPS radar telemetry simulation, Web Speech voice alerts, Patan → ITR route timetable, dynamic student QR bus pass generator, seat occupancy heatmap, and emergency SOS alerts.",
     tags: ["web"] as FilterType[],
-    tech: ["HTML5", "CSS3", "JavaScript", "HTML5 Canvas", "Web Speech API", "Web Audio API", "LocalStorage"],
+    tech: ["HTML5 Canvas", "Web Speech API", "Web Audio API", "JavaScript ES6+", "QR Pass Engine", "LocalStorage"],
     live: "https://smarttransport1.netlify.app/",
     github: "https://github.com/preyal2/smart-college-transport",
     featured: true,
@@ -57,124 +250,76 @@ const projects: Project[] = [
     learning: ["HTML5 Canvas Radar", "Web Speech & Audio APIs", "Simulation Engines", "Zero-Dependency Architecture"],
   },
   {
-    id: 2,
-    title: "Smart Recipe Preparation Agent",
+    id: 10,
+    title: "Daily LeetCode Algorithmic Vault (245+ Solved)",
     description:
-      "An AI-powered recipe preparation web application that helps users discover recipes, ingredients, and cooking instructions through a clean, responsive, and user-friendly interface.",
-    tags: ["ai", "web"] as FilterType[],
-    tech: ["HTML", "CSS", "JavaScript", "AI", "Responsive Design"],
-    live: "https://recipepreparationagent.netlify.app/",
-    github: "https://github.com/preyal2/SmartRecipePreparationAgent",
+      "A curated algorithmic practice repository containing 245+ verified solutions (58 Easy, 141 Medium, 46 Hard) in Python 3.12 with sub-millisecond runtimes, optimal Big-O bounds, and automated LeetSync CI/CD synchronization.",
+    tags: ["practice"] as FilterType[],
+    tech: ["Python 3.12", "LeetSync CI/CD", "Big-O Analysis", "Data Structures", "Algorithms", "DSA"],
+    live: "https://leetcode.com/u/preyal2/",
+    github: "https://github.com/preyal2/daily-leetcode",
     featured: true,
-    emoji: "🍳",
-    gradient: "from-orange-600 via-red-600 to-pink-600",
-    colorPrimary: "#F97316",
+    emoji: "⚡",
+    gradient: "from-amber-500 via-yellow-500 to-orange-500",
+    colorPrimary: "#F59E0B",
+    colorSecondary: "#EA580C",
+    keyFeatures: [
+      "245+ verified solutions spanning 58 Easy, 141 Medium, and 46 Hard problems with sub-millisecond execution times",
+      "Structured pattern matrix covering 8 domains: Two Pointers, Sliding Window, Linked Lists, Trees, DP, Backtracking, Graphs",
+      "Continuous live LeetCode synchronization via LeetSync maintaining an active GitHub contribution streak",
+      "Annotated with formal time and space complexity proofs and edge case breakdowns",
+    ],
+    challenges:
+      "Consistently engineering optimal upper-bound asymptotic complexity solutions ($O(1)$ auxiliary space and $O(N)$ runtime).",
+    learning: ["Algorithmic Optimization", "Complexity Analysis", "CI/CD LeetSync", "Competitive Programming"],
+  },
+  {
+    id: 11,
+    title: "Big Tech Coding Interview Patterns Masterclass",
+    description:
+      "Architectural blueprints and deep breakdowns of 14 essential algorithmic patterns (Sliding Window, Fast & Slow Pointers, Monotonic Stack, Top-K, In-Place Reversals) with strict UMPIRE methodology and Big-O proofs.",
+    tags: ["practice"] as FilterType[],
+    tech: ["Python 3.12", "UMPIRE Framework", "Mathematical Big-O Proofs", "14 Patterns", "DSA"],
+    live: null,
+    github: "https://github.com/preyal2/coding-interview-patterns",
+    featured: false,
+    emoji: "📐",
+    gradient: "from-cyan-600 via-blue-600 to-indigo-600",
+    colorPrimary: "#06B6D4",
+    colorSecondary: "#2563EB",
+    keyFeatures: [
+      "14 Algorithmic Blueprints: Deep breakdowns of Sliding Window, Fast & Slow Pointers, Monotonic Stack, Top-K, In-Place Reversals",
+      "UMPIRE Problem-Solving: Strict 6-step discipline (Understand, Match, Plan, Implement, Review, Evaluate) applied to every problem",
+      "Formal mathematical Big-O time and space proofs with dry runs on critical edge cases",
+      "Practical decision trees guiding optimal pattern selection based on constraints and data topologies",
+    ],
+    challenges:
+      "Distilling complex algorithmic paradigms into intuitive, repeatable problem-matching templates.",
+    learning: ["UMPIRE Problem Solving", "Pattern Recognition", "In-Depth Complexity Proofs", "Interview Strategy"],
+  },
+  {
+    id: 12,
+    title: "Beginner-to-Advanced DSA Roadmap & Problem Vault",
+    description:
+      "A progressive, structured DSA curriculum advancing from arrays and pointer arithmetic to advanced dynamic programming and graph algorithms — including an interactive 1,900+ problem tracking sheet and Tier-1 Google question vault.",
+    tags: ["practice"] as FilterType[],
+    tech: ["Python 3.12", "1,900+ Problem Sheet", "Tier-1 Google Vault", "Gemini 3.8 Copilot", "DSA"],
+    live: null,
+    github: "https://github.com/preyal2/dsa-beginner-to-advanced",
+    featured: false,
+    emoji: "🚀",
+    gradient: "from-indigo-600 via-purple-600 to-pink-600",
+    colorPrimary: "#8B5CF6",
     colorSecondary: "#EC4899",
     keyFeatures: [
-      "AI-driven recipe discovery and recommendation engine",
-      "Smart ingredient list with quantity scaling",
-      "Step-by-step cooking instructions with timers",
-      "Fully responsive design across all devices",
+      "Curated Progressive Roadmap: Complete structured curriculum advancing from array fundamentals and pointer arithmetic to advanced DP and graphs",
+      "1,900+ Problem Sheet: Interactive problem tracking matrix mapped across Tier-1 company archives and coding contest benchmarks",
+      "AI Algorithmic Copilot: Integrated problem-solving frameworks powered by Gemini 3.8 Flash for hint generation and complexity optimization",
+      "Comprehensive categorization with difficulty tiers and prerequisite dependency graphs",
     ],
     challenges:
-      "Integrating an AI agent into a pure HTML/CSS/JS architecture without a backend framework required careful API orchestration and graceful error handling.",
-    learning: ["AI API Integration", "UX Design", "Vanilla JS Architecture"],
-  },
-  {
-    id: 3,
-    title: "IronCore Gym Management System",
-    description:
-      "A full-stack, enterprise-grade Gym & Fitness Management Platform featuring multi-role authentication (Admin, Trainer, Member), member lifecycle tracking, diet & workout trackers, financial analytics with Chart.js, and printable PDF receipts.",
-    tags: ["web"] as FilterType[],
-    tech: ["PHP 8", "MySQL", "SQLite", "JavaScript", "Chart.js", "REST API", "Tailwind CSS"],
-    live: "https://ironcoregym7.netlify.app/",
-    github: "https://github.com/preyal2/ironcore-gym-management-system",
-    featured: true,
-    emoji: "🏋️",
-    gradient: "from-amber-600 via-orange-600 to-red-600",
-    colorPrimary: "#EA580C",
-    colorSecondary: "#E11D48",
-    keyFeatures: [
-      "Decoupled 3-tier client-server architecture with normalized 19-table schema and cascade integrity",
-      "Zero-config automated PDO database fallback between MySQL and SQLite with automated SQL dialect translation",
-      "Role-Based Access Control (RBAC) with secure BCrypt sessions for Admin, Trainer, and Member portals",
-      "Digital attendance check-in terminal, workout & diet routine planner, Chart.js revenue charts & printable PDF receipts",
-    ],
-    challenges:
-      "Designing a seamless database portability engine using PDO that dynamically converts schema data types and functions between MySQL and SQLite without manual reconfiguration.",
-    learning: ["Full-Stack Architecture", "Database Normalization", "RBAC Security", "REST API Design"],
-  },
-  {
-    id: 4,
-    title: "Developer Portfolio",
-    description:
-      "A modern developer portfolio showcasing projects, internships, certifications, GitHub stats, skills, and achievements with premium animations and fully responsive design.",
-    tags: ["web"] as FilterType[],
-    tech: ["React", "Tailwind CSS", "Vite", "TypeScript", "Framer Motion"],
-    live: "https://preyal1portfolio.netlify.app/",
-    github: "https://github.com/preyal2/portfolio",
-    featured: false,
-    emoji: "💼",
-    gradient: "from-blue-600 via-violet-600 to-purple-600",
-    colorPrimary: "#2563EB",
-    colorSecondary: "#7C3AED",
-    keyFeatures: [
-      "Live GitHub API & LeetCode stats integration",
-      "Glassmorphism dark theme with custom cursor",
-      "Animated section reveals and micro-interactions",
-      "Certificate viewer with modal & download",
-    ],
-    challenges:
-      "Architecting a fast, accessible SPA with multiple live API calls while keeping Lighthouse score high through lazy loading and optimized assets.",
-    learning: ["React Architecture", "API Integration", "Performance Optimization"],
-  },
-  {
-    id: 5,
-    title: "Personalized Nutrition Agent",
-    description:
-      "An AI-powered nutrition assistant that recommends personalized diet plans using user preferences such as age, food choices, health conditions, and location.",
-    tags: ["ai", "ml"] as FilterType[],
-    tech: ["AI", "JavaScript", "React", "Machine Learning"],
-    live: null,
-    github: null,
-    featured: false,
-    emoji: "🥗",
-    gradient: "from-green-600 via-emerald-600 to-teal-600",
-    colorPrimary: "#22C55E",
-    colorSecondary: "#38BDF8",
-    keyFeatures: [
-      "User profiling via age, health goals, and dietary preferences",
-      "AI-generated personalized meal plans",
-      "Nutritional breakdown per recommended meal",
-      "Location-aware food suggestions",
-    ],
-    challenges:
-      "Building a reliable AI model that accounts for diverse dietary restrictions and local food availability while maintaining recommendation quality.",
-    learning: ["Health AI", "Personalization Algorithms", "React State Management"],
-  },
-  {
-    id: 6,
-    title: "Daily LeetCode",
-    description:
-      "A repository containing daily Data Structures and Algorithms solutions demonstrating consistency, problem-solving skills, and rigorous interview preparation.",
-    tags: ["practice"] as FilterType[],
-    tech: ["Python", "Java", "Data Structures", "Algorithms", "DSA"],
-    live: null,
-    github: "https://github.com/preyal2/daily-leetcode",
-    featured: false,
-    emoji: "⚡",
-    gradient: "from-amber-500 via-orange-500 to-red-500",
-    colorPrimary: "#F59E0B",
-    colorSecondary: "#F97316",
-    keyFeatures: [
-      "Organised by problem category (Arrays, Trees, DP, Graphs)",
-      "Multiple language solutions (Python + Java)",
-      "Consistent daily commit streak",
-      "Annotated with time & space complexity analysis",
-    ],
-    challenges:
-      "Maintaining daily consistency while balancing internships, coursework, and project development without sacrificing solution quality.",
-    learning: ["DSA Mastery", "Problem Patterns", "Interview Readiness"],
+      "Structuring an end-to-end curriculum that bridges the gap between novice fundamentals and FAANG-level hard problems.",
+    learning: ["Curriculum Engineering", "Advanced Graph Theory", "Dynamic Programming", "AI Copilot Integration"],
   },
 ];
 
@@ -458,10 +603,10 @@ export function Projects() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <SectionHeader
-          badge="Featured Work"
-          title="My"
-          highlight="Projects"
-          subtitle="Building practical solutions at the intersection of AI, Web, and Data."
+          badge="12 Featured Repositories"
+          title="Featured"
+          highlight="Projects (12)"
+          subtitle="Point-to-point production implementations spanning Generative AI agents, Machine Learning models, Exploratory Data Analytics, and full-stack systems."
         />
 
         {/* Filter Tabs */}

@@ -7,12 +7,12 @@ import {
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const roles = [
+  "Data Analytics & ML Engineer",
+  "Generative AI & Agent Builder",
+  "Full-Stack Software Developer",
+  "245+ Solved LeetCode Solutions",
+  "Systems & Cloud Architect",
   "Computer Engineering Student",
-  "AI Builder",
-  "Vibe Coder",
-  "Machine Learning Enthusiast",
-  "Cloud Explorer",
-  "Problem Solver",
 ];
 
 // Only 2 subtle floating icons — clean and minimal
@@ -200,9 +200,9 @@ export function Hero({ onHireMeClick }: HeroProps) {
             className="text-[#A1A1AA] text-base leading-relaxed mb-10 max-w-lg"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            I build AI-powered applications using modern tools, explore Cloud
-            Computing and Data Analytics, and transform ideas into practical
-            software that solves real-world problems.
+            Transforming raw data into predictive intelligence, engineering autonomous AI agents
+            with Google Gemini 3.8 Flash, and architecting resilient full-stack systems with 245+
+            solved algorithmic challenges.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -396,7 +396,7 @@ export function Hero({ onHireMeClick }: HeroProps) {
                 className="text-sky-400 text-xs font-semibold"
                 style={{ fontFamily: "JetBrains Mono, monospace" }}
               >
-                🔥 Daily LeetCode
+                🔥 245+ Solved DSA (Top Runtimes)
               </p>
             </motion.div>
           </div>
