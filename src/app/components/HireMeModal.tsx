@@ -166,10 +166,10 @@ export function HireMeModal({ isOpen, onClose }: HireMeModalProps) {
                     Preyal Modi
                   </h3>
                   <p className="text-[#38BDF8] text-sm font-semibold mt-0.5">
-                    Software Engineering | AI | ML Roles
+                    Data Analytics &amp; Machine Learning Engineer | Generative AI &amp; Software Developer
                   </p>
                   <p className="text-[#A1A1AA] text-xs mt-2 leading-relaxed">
-                    Actively seeking Internship &amp; Full-Time opportunities. Experienced in designing machine learning pipelines and engineering responsive full-stack applications.
+                    Actively seeking Software Engineering, AI/ML, and Data Analytics Internship &amp; Full-Time roles. Proven engineering excellence in predictive modeling, autonomous AI agents (Gemini 3.8 Flash), production full-stack systems, and 245+ solved algorithmic challenges.
                   </p>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export function HireMeModal({ isOpen, onClose }: HireMeModalProps) {
             <div className="grid grid-cols-3 divide-x divide-white/5 bg-white/[0.01] py-4 border-b border-white/5 text-center">
               <div>
                 <p className="text-[10px] text-[#8E8E93] uppercase tracking-wider font-semibold">Roles</p>
-                <p className="text-white text-xs font-bold mt-1">SWE, AI &amp; ML</p>
+                <p className="text-white text-xs font-bold mt-1">AI, ML, Data &amp; SWE</p>
               </div>
               <div>
                 <p className="text-[10px] text-[#8E8E93] uppercase tracking-wider font-semibold">Availability</p>
@@ -218,7 +218,7 @@ export function HireMeModal({ isOpen, onClose }: HireMeModalProps) {
                     </span>
                     <div className="text-xs">
                       <span className="font-semibold text-white block">Strong Coding &amp; CS Fundamentals</span>
-                      <span className="text-[#A1A1AA]">Computer Engineering student at GTU. Active LeetCode daily coder solving algorithmic problems.</span>
+                      <span className="text-[#A1A1AA]">Computer Engineering at GTU with 245+ solved LeetCode challenges and 14 interview pattern blueprints.</span>
                     </div>
                   </li>
                   <li className="flex gap-2.5 items-start">

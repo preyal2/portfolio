@@ -45,7 +45,7 @@ export function About() {
           badge="About Me"
           title="Who I"
           highlight="Am"
-          subtitle="A Computer Engineering student building AI-powered applications and growing every single day."
+          subtitle="Data Analytics &amp; Machine Learning Engineer architecting predictive models, autonomous AI agents, and production full-stack systems."
         />
 
         <div className="grid lg:grid-cols-[340px_1fr] gap-10 items-start">
@@ -67,7 +67,7 @@ export function About() {
             >
               <ImageWithFallback
                 src="/profile.png"
-                alt="Preyal Modi — Computer Engineering Student"
+                alt="Preyal Modi — Data Analytics &amp; Machine Learning Engineer"
                 className="w-full h-full object-cover"
               />
             </div>

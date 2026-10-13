@@ -323,7 +323,7 @@ export function Hero({ onHireMeClick }: HeroProps) {
             >
               <ImageWithFallback
                 src="/profile.png"
-                alt="Preyal Modi — Computer Engineering Student & AI Builder"
+                alt="Preyal Modi — Data Analytics & Machine Learning Engineer | Generative AI & Software Developer"
                 className="w-full h-full object-cover"
               />
               {/* Subtle tint */}
